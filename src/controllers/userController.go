@@ -9,9 +9,9 @@ import (
 func GetUsers(c *fiber.Ctx) error {
 	users := models.SelectUsers()
 	if len(users) == 0 {
-		return c.Status(fiber.StatusNoContent).JSON(fiber.Map{
-			"status":     "no content",
-			"statusCode": 202,
+		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{
+			"status":     "not found",
+			"statusCode": 404,
 			"message":    "Users not found.",
 		})
 	}
