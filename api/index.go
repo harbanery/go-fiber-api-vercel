@@ -8,6 +8,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/adaptor"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
@@ -18,6 +19,13 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 func handler() http.HandlerFunc {
 	app := fiber.New()
+
+	app.Use(cors.New(cors.Config{
+		AllowOrigins:  "*",
+		AllowMethods:  "GET,POST,PUT,DELETE",
+		AllowHeaders:  "*",
+		ExposeHeaders: "Content-Length",
+	}))
 
 	configs.InitDB()
 	helpers.Migration()
