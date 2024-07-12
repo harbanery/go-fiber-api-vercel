@@ -10,7 +10,7 @@ import (
 var DB *gorm.DB
 
 func InitDB() {
-	url := "postgres://raihan:raihan123@147.139.210.135/raihan01"
+	url := "postgres://default:Y1xpNs9bQwHT@ep-plain-firefly-a186xywd.ap-southeast-1.aws.neon.tech:5432/verceldb?sslmode=require"
 	var err error
 	DB, err = gorm.Open(postgres.Open(url), &gorm.Config{})
 	if err != nil {
