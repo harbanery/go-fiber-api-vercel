@@ -31,5 +31,4 @@ func SetupRoutes(app *fiber.App) {
 	api := app.Group("/api")
 
 	api.Get("/users", controllers.GetUsers)
-	api.Post("/users", controllers.RegisterUser)
 }

@@ -18,8 +18,3 @@ func SelectUsers() []*User {
 	configs.DB.Find(&users)
 	return users
 }
-
-func CreateUser(user *User) error {
-	result := configs.DB.Create(&user)
-	return result.Error
-}
